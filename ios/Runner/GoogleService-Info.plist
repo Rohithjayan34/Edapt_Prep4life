@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>85759285344-pm2u6tnpprvnagud8hoquonfh1d7frka.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.85759285344-pm2u6tnpprvnagud8hoquonfh1d7frka</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>85759285344-9scgdmsul8vtlasctq0go3tcuk75n4tq.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCB2my3qwjsHA7WG3dsEtP3NJkbBtjh43Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>85759285344</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.edapt.prep4life</string>
+	<key>PROJECT_ID</key>
+	<string>edapt-9da7a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>edapt-9da7a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:85759285344:ios:c683945c1cf0e41a62cb05</string>
+	<key>DATABASE_URL</key>
+	<string>https://edapt-9da7a.firebaseio.com</string>
+</dict>
+</plist>
