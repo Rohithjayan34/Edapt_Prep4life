@@ -81,18 +81,22 @@ class AfterSplash extends StatefulWidget {
        controller: _menuPositionController,
        initialIndex: 0,
        itemMargin: EdgeInsets.symmetric(horizontal: 8),
+
        backgroundColor: Color(0xffDBF1F8 ),
        defaultBubbleColor: Colors.blue,
+
         onTap: (index) {
         _pageController.animateToPage(
        index,
        curve: Curves.easeInOutQuad,
+
        duration: Duration(milliseconds: 500)
        );
         },
         items: widget.titles.map((title) {
        var index = widget.titles.indexOf(title);
         var color = widget.colors[index];
+        
         return BubbledNavigationBarItem(
         icon: getIcon(index, color),
         activeIcon: getIcon(index, Colors.white),
@@ -101,9 +105,12 @@ class AfterSplash extends StatefulWidget {
          title,
          style: TextStyle(color: Colors.white, fontSize: 15),
   ),
+
   );
   }).toList(),
-  )
+
+  ),
+
   );
   }
 

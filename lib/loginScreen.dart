@@ -1,4 +1,5 @@
 import 'package:Prep4life/enterScreen.dart';
+import 'package:Prep4life/gamePage1.dart';
 import 'package:Prep4life/pointsPage.dart';
 import 'package:Prep4life/secondPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -151,13 +152,11 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Center(
         child: new SplashScreen(
-
-          seconds: 4,
-          navigateAfterSeconds: PointsPage(),
-          loaderColor: Colors.red,
-
-
-
+          seconds: 3,
+          navigateAfterSeconds: AfterSplash(),
+          loaderColor: Colors.white,
+          image: Image.asset('images/lo.gif'),
+          photoSize: 50,
         ),
       ),
     );
