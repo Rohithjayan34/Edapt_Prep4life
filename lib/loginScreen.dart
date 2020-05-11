@@ -1,4 +1,5 @@
 import 'package:Prep4life/enterScreen.dart';
+import 'package:Prep4life/pointsPage.dart';
 import 'package:Prep4life/secondPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: new SplashScreen(
 
           seconds: 4,
-          navigateAfterSeconds: SecondScreen(),
+          navigateAfterSeconds: PointsPage(),
           loaderColor: Colors.red,
 
 
