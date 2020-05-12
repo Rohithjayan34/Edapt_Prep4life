@@ -1,5 +1,5 @@
-import 'package:Prep4life/answerPage2.dart';
-import 'package:Prep4life/gamePage2.dart';
+import 'package:Prep4life/Answers/answerPage2.dart';
+import 'package:Prep4life/GamePages/gamePage2.dart';
 import 'package:flutter/material.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
 

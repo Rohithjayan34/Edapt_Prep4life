@@ -1,7 +1,7 @@
-import 'package:Prep4life/enterScreen.dart';
-import 'package:Prep4life/gamePage1.dart';
-import 'package:Prep4life/pointsPage.dart';
-import 'package:Prep4life/secondPage.dart';
+import 'package:Prep4life/Dashboard/enterScreen.dart';
+import 'package:Prep4life/GamePages/gamePage1.dart';
+import 'package:Prep4life/Points%20to%20note/pointsPage.dart';
+import 'package:Prep4life/CoursePage/secondPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: new SplashScreen(
           seconds: 3,
-          navigateAfterSeconds: AfterSplash(),
+          navigateAfterSeconds: SecondScreen(),
           loaderColor: Colors.white,
           image: Image.asset('images/lo.gif'),
           photoSize: 50,

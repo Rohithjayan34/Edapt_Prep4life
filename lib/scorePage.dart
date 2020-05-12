@@ -1,4 +1,4 @@
-import 'package:Prep4life/answerPage1.dart';
+import 'package:Prep4life/Answers/answerPage1.dart';
 import 'package:flutter/material.dart';
 
 class ScorePage extends StatefulWidget {

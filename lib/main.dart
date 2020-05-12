@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'loginScreen.dart';
+import 'sign in/loginScreen.dart';
 
 
 void main() => runApp(MyApp());
