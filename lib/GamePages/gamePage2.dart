@@ -1,4 +1,4 @@
-import 'package:Prep4life/scorePage.dart';
+import 'package:Prep4life/Scorepage/scorePage.dart';
 import 'package:flutter/material.dart';
 import 'package:intervalprogressbar/intervalprogressbar.dart';
 

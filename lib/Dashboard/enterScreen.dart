@@ -5,122 +5,118 @@ import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:bubbled_navigation_bar/bubbled_navigation_bar.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:line_icons/line_icons.dart';
+import 'homescreen.dart';
+import 'analyticsPage.dart';
+import 'profileScreen.dart';
+export 'homescreen.dart';
+
+class Dashboard extends StatefulWidget {
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
 
 
-class AfterSplash extends StatefulWidget {
 
-    final titles = ['Home', 'Analytics', 'Profile'];
-    final colors = [Colors.blue, Colors.blue, Colors.blue];
-    final icons = [
-      FontAwesomeIcons.home,
-      FontAwesomeIcons.chartPie,
-      CupertinoIcons.profile_circled,
+  PageController _controller;
+  MenuPositionController _controller2;
 
-    ];
+  final List<BubbledNavigationBarItem> barItems = [
+    BubbledNavigationBarItem(
 
+        icon: Icon(LineIcons.home),
+        activeIcon: Icon(LineIcons.home, color: Colors.white),
+        title: Text(
+          "Home",
+          style: TextStyle(
+            fontSize: 18.0,
+              fontFamily: "Baloo", color: Colors.white),
+        )),
+    BubbledNavigationBarItem(
+        //bubbleColor: Colors.teal,
+        icon: Icon(LineIcons.search),
+        activeIcon: Icon(LineIcons.pie_chart, color: Colors.white),
+        title: Text(
+          "Analytics",
+          style: TextStyle(
+            fontSize: 18.0,
 
-    @override
-    _AfterSplashState createState() => _AfterSplashState();
-  }
+              fontFamily: "Baloo", color: Colors.white),
+        )),
+    BubbledNavigationBarItem(
+        //bubbleColor: Colors.green,
+        icon: Icon(LineIcons.user),
+        activeIcon: Icon(LineIcons.user, color: Colors.white),
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            fontSize: 18.0,
 
-  class _AfterSplashState extends State<AfterSplash> {
-  PageController _pageController;
-  MenuPositionController _menuPositionController;
-  bool userPageDragging = false;
+              fontFamily: "Baloo", color: Colors.white),
+        )
+    ),
+
+  ];
 
   @override
   void initState() {
-  _menuPositionController = MenuPositionController(initPosition: 0);
-
-  _pageController = PageController(
-  initialPage: 0,
-  keepPage: false,
-  viewportFraction: 1.0
-  );
-  _pageController.addListener(handlePageChange);
-
-  super.initState();
+    _controller = new PageController(initialPage: 0);
+    super.initState();
   }
 
-  void handlePageChange() {
-  _menuPositionController.absolutePosition = _pageController.page;
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
-  void checkUserDragging(ScrollNotification scrollNotification) {
-  if (scrollNotification is UserScrollNotification && scrollNotification.direction != ScrollDirection.idle) {
-  userPageDragging = true;
-  } else if (scrollNotification is ScrollEndNotification) {
-  userPageDragging = false;
-  }
-  if (userPageDragging) {
-  _menuPositionController.findNearestTarget(_pageController.page);
-  }
-  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: PageView(
+          controller: _controller,
+          physics: NeverScrollableScrollPhysics(),
+          // onPageChanged: (index) {
+          //   print(index);
+          //   _controller2.animateToPosition(index,
+          //       duration: Duration(milliseconds: 300));
+          // },
+          children: <Widget>[
+            Home(),
+            Analytics(),
+            Profile(),
 
-   @override
-   Widget build(BuildContext context) {
-   return Scaffold(
-
-     body: NotificationListener<ScrollNotification>(
-      // ignore: missing_return
-      onNotification: (scrollNotification) {
-      checkUserDragging(scrollNotification);
-  },
-      child: PageView(
-      controller: _pageController,
-      children: widget.colors.map((Color c) =>
-          Container(color: Color(0xffEAF6FA),),).toList(),
-
-     onPageChanged: (page) {},
-
-  ),
-
-  ),
-
-       bottomNavigationBar: BubbledNavigationBar(
-       controller: _menuPositionController,
-       initialIndex: 0,
-       itemMargin: EdgeInsets.symmetric(horizontal: 8),
-
-       backgroundColor: Color(0xffDBF1F8 ),
-       defaultBubbleColor: Colors.blue,
-
+          ],
+        ),
+      ),
+      bottomNavigationBar: BubbledNavigationBar(
+        items: barItems,
+        controller: _controller2,
+        itemMargin: EdgeInsets.only(right: 14),
+        iconRightMargin: 4,
+        animationCurve: Curves.ease,
+        animationDuration: Duration(milliseconds: 300),
+        backgroundColor: Color(0xffC4ECF7),
         onTap: (index) {
-        _pageController.animateToPage(
-       index,
-       curve: Curves.easeInOutQuad,
-
-       duration: Duration(milliseconds: 500)
-       );
+          print(index);
+          _controller.animateToPage(index,
+              curve: Curves.ease, duration: Duration(milliseconds: 300));
         },
-        items: widget.titles.map((title) {
-       var index = widget.titles.indexOf(title);
-        var color = widget.colors[index];
-        
-        return BubbledNavigationBarItem(
-        icon: getIcon(index, color),
-        activeIcon: getIcon(index, Colors.white),
-        bubbleColor: color,
-        title: Text(
-         title,
-         style: TextStyle(color: Colors.white, fontSize: 15),
-  ),
-
-  );
-  }).toList(),
-
-  ),
-
-  );
+      ),
+    );
   }
+}
 
-  Padding getIcon(int index, Color color) {
-  return Padding(
-  padding: const EdgeInsets.only(bottom: 3),
-  child: Icon(widget.icons[index], size: 30, color:color ),
-  );
-  }
-  }
+
+
+
+
+
+
 
 
 

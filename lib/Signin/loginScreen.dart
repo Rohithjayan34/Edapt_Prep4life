@@ -1,13 +1,14 @@
+
 import 'package:Prep4life/Dashboard/enterScreen.dart';
-import 'package:Prep4life/GamePages/gamePage1.dart';
-import 'package:Prep4life/Points%20to%20note/pointsPage.dart';
-import 'package:Prep4life/CoursePage/secondPage.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:splashscreen/splashscreen.dart';
+
+import 'package:flutter/material.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  String value;
   var loggedIn = false;
   var firebaseAuth = FirebaseAuth.instance;
 
@@ -153,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: new SplashScreen(
           seconds: 3,
-          navigateAfterSeconds: SecondScreen(),
+          navigateAfterSeconds: Dashboard(),
           loaderColor: Colors.white,
           image: Image.asset('images/lo.gif'),
           photoSize: 50,
@@ -197,7 +199,9 @@ class _LoginScreenState extends State<LoginScreen> {
           final googleAuthCred = GoogleAuthProvider.getCredential(
               idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
           final user = await firebaseAuth.signInWithCredential(googleAuthCred);
+
           print("User : " + user.displayName);
+          value=user.displayName;
           return 1;
         } catch (error) {
           return 0;
@@ -231,3 +235,4 @@ class _LoginScreenState extends State<LoginScreen> {
     return googleSignInAccount;
   }
 }
+
